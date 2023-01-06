@@ -48,7 +48,7 @@ def makestalist(network,station,channel,location,datetime):
         nol = len(df)
     df.append(df, ignore_index = True)        
     print(df)
-    df.to_csv('stafile.csv',index=False)
+    df.to_csv('output/stafile.csv',index=False)
     print("--- %s seconds ---" % (time.time() - start_time))
    
 
@@ -79,9 +79,9 @@ def creategrid(lonmin,lonmax,lonnum,latmin,latmax,latnum,wavespeed,stafile):
                 distgrid[j,i,s] = distkm #distances are saved in meters
                 tt = np.divide(float(distkm),float(wavespeed)) #calculate the traveltime
                 ttgrid[j,i,s] = tt #save to traveltime table
-    np.save("distgridfile", distgrid)  
-    np.save("ttgridfile", ttgrid)  
-    np.save("lonlatgridfile", lonlatgrid)
+    np.save("output/distgridfile", distgrid)  
+    np.save("output/ttgridfile", ttgrid)  
+    np.save("output/lonlatgridfile", lonlatgrid)
     print("--- %s seconds ---" % (time.time() - start_time))
     
 ####################################################################################################################################################################################
@@ -125,7 +125,7 @@ def prepwaveforms(stafile,datetime,duration):
       #  if tr.data != []: #creating empty traces didn't work because mseed doesn't save them. 
             tr.remove_response(output='DISP')
     print(st.__str__(extended=True))
-    st.write('before_ts_wfs.mseed', format="MSEED")  
+    st.write('output/before_ts_wfs.mseed', format="MSEED")  
     print("--- %s seconds ---" % (time.time() - start_time))
 
 ####################################################################################################################################################################################
@@ -258,8 +258,8 @@ def locate(ttgridfile,before_ts_wfs,lonlatgridfile,method=1):
     df.loc[0] = location 
     print(df)
     print("--- %s seconds ---" % (time.time() - start_time))
-    df.to_csv('locfile.csv',index=False)
-    np.save("strengthfile", strength)
+    df.to_csv('output/locfile.csv',index=False)
+    np.save("output/strengthfile", strength)
 
 
 ####################################################################################################################################################################################
@@ -293,7 +293,7 @@ def error(gtevlat,gtevlon,conf,locfile,lonlatgridfile,stacked_strengthfile):
     im = ax.pcolormesh(xx,yy, stacked_strength,shading='nearest',cmap=cm.hot_r, vmin=0, vmax=1)
     ax110 = fig.add_axes([0.92, 0.11, 0.01, 0.77])
     fig.colorbar(im, cax=ax110)    
-    fig.savefig('stacked_strength_map_' + str(conf) + '.png', bbox_inches='tight')
+    fig.savefig('output/stacked_strength_map_' + str(conf) + '.png', bbox_inches='tight')
     power = np.amax(stacked_strength)
     threshold = power*conf
     stacked_strength[stacked_strength < threshold] = np.NaN 
@@ -345,25 +345,66 @@ def error(gtevlat,gtevlon,conf,locfile,lonlatgridfile,stacked_strengthfile):
     loc_error = power,threshold,gterr,conf,err1,err2,rect_blx,rect_bly,rect_urx,rect_ury
     errdf.loc[0] = loc_error 
     print(errdf)            
-    errdf.to_csv('locerror_' + str(conf) + '.csv',index=False)
+    errdf.to_csv('output/locerror_' + str(conf) + '.csv',index=False)
     
     #plot the isolated peak
    
-    sub_strength = stacked_strength[minx:maxx,miny:maxy]
-    sub_yy= yy[minx:maxx,miny:maxy]
-    sub_xx= xx[minx:maxx,miny:maxy]
+    #sub_strength = stacked_strength[minx:maxx,miny:maxy]
+    #sub_yy= yy[minx:maxx,miny:maxy]
+    #sub_xx= xx[minx:maxx,miny:maxy]
+    #
+    #fig1, (ax1) = plt.subplots(1,1)
+    #im1 = ax1.pcolormesh(xx,yy, stacked_strength,shading='nearest',cmap=cm.hot_r,vmin=0, vmax=1)
+    #ax111 = fig1.add_axes([0.92, 0.11, 0.01, 0.77])
+    #fig1.colorbar(im1, cax=ax111)    
+    #fig1.savefig('stacked_strength_nan_map_' +  str(conf) + '.png', bbox_inches='tight')
+    #
+    #fig2, (ax2) = plt.subplots(1,1)
+    #im2 = ax2.pcolormesh(sub_xx,sub_yy, sub_strength,shading='nearest',cmap=cm.hot_r,vmin=0, vmax=1)
+    #ax112 = fig2.add_axes([0.92, 0.11, 0.01, 0.77])
+    #fig2.colorbar(im2, cax=ax112)    
+    ##np.savetxt("sub_lonlatgrid", sub_lonlatgrid)
+    #
+    #fig2.savefig('sub_strength_map_' + str(conf) + '.png', bbox_inches='tight')
     
-    fig1, (ax1) = plt.subplots(1,1)
-    im1 = ax1.pcolormesh(xx,yy, stacked_strength,shading='nearest',cmap=cm.hot_r,vmin=0, vmax=1)
-    ax111 = fig1.add_axes([0.92, 0.11, 0.01, 0.77])
-    fig1.colorbar(im1, cax=ax111)    
-    fig1.savefig('stacked_strength_nan_map_' +  str(conf) + '.png', bbox_inches='tight')
-    
-    fig2, (ax2) = plt.subplots(1,1)
-    im2 = ax2.pcolormesh(sub_xx,sub_yy, sub_strength,shading='nearest',cmap=cm.hot_r,vmin=0, vmax=1)
-    ax112 = fig2.add_axes([0.92, 0.11, 0.01, 0.77])
-    fig2.colorbar(im2, cax=ax112)    
-    #np.savetxt("sub_lonlatgrid", sub_lonlatgrid)
-    
-    fig2.savefig('sub_strength_map_' + str(conf) + '.png', bbox_inches='tight')
-    
+####################################################################################################################################################################################
+#size
+#This code calculates the volume of the event
+####################################################################################################################################################################################
+
+def size(stafile,locfile,before_ts_wfs):
+    g = Geod(ellps='WGS84')
+    a = 1.4719977544177063 
+    b = 36.31567785721356
+    sizedf =  pd.DataFrame(columns = ['volume'])
+    ampdf =  pd.DataFrame(columns = ['absmaxamp','maxamp','minamp','envabsmaxamp','dist','station[s]'])
+    evdf = pd.read_csv(locfile,index_col=None,keep_default_na=False)
+    stdf = pd.read_csv(stafile,index_col=None,keep_default_na=False)
+    station = stdf['station']
+    stalat = stdf['latitude']
+    stalon = stdf['longitude']
+    st = read(before_ts_wfs)
+    npts_all = [len(tr) for tr in st]
+    npts = min(npts_all)
+    data = np.array([tr.data[:npts] for tr in st])
+    dataenv = np.array([envelope(tr.data[:npts]) for tr in st])
+    noss = data.shape[0] # same with nos = len(st), using this for consistency 
+    for s in range(noss):
+        absmaxamp = np.max(np.abs(data[s])) #max of the abs value of the stack
+        envabsmaxamp = np.max(np.abs(dataenv[s])) #max of the abs value of the stack
+        maxamp = np.max((data[s])) #max of the abs value of the stack
+        minamp = np.min((data[s])) #max of the abs value of the stack
+        azimuth, azimuth, distance_2d = g.inv(evdf.longitude[0],evdf.latitude[0],stalon[s],stalat[s])
+        dist = float(distance_2d)/1000
+        amplitude = absmaxamp,maxamp,minamp,envabsmaxamp,dist,station[s]
+        ampdf.loc[s] = amplitude
+    ampdf['distance (deg)'] = ampdf['dist']/111    
+    abs_amp=ampdf.loc[(ampdf['distance (deg)'] >= 1), 'absmaxamp']        
+    #log10 (y) = b + a*log10(x)
+    mean = np.mean(abs_amp)
+    volume = np.exp((np.log(mean)*a)+b)    
+    sizedf.loc[0] = volume 
+    print(sizedf)
+    sizedf.to_csv('output/sizefile.csv',index=False)
+
+        
