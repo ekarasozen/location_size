@@ -43,7 +43,7 @@ def plotGrid(lonlatgridfile,stacked_strengthfile):
     #ax1.axes.xaxis.set_ticklabels([])
     #ax2.set_xlabel("Time [UTC]" )
     #ax1.text(0.01, 0.88, text, transform=ax2.transAxes, fontsize=10, fontweight='bold', color='white')
-    fig.savefig('stacked_strength', bbox_inches='tight')
+    fig.savefig('figures/stacked_strength', bbox_inches='tight')
     
     
 def plotRecSecNorm(st,stafile,gtevlat,gtevlon):
@@ -73,7 +73,7 @@ def plotRecSecNorm(st,stafile,gtevlat,gtevlon):
     for tr in st:
         ax.text(tr.stats.distance / 1e3, 1.0, tr.stats.station, rotation=270,
             va="bottom", ha="center", transform=transform, zorder=10)
-    fig.savefig('record_section_norm', bbox_inches='tight')
+    fig.savefig('figures/record_section_norm', bbox_inches='tight')
 
 
 def plotWfUnnorm(st,stafile,gtevlat,gtevlon): #function to plot all waveforms at one subplot; alternative way to see un-normalized record sections
@@ -107,5 +107,5 @@ def plotWfUnnorm(st,stafile,gtevlat,gtevlon): #function to plot all waveforms at
         ax.xaxis.set_major_formatter(mdates.DateFormatter('%H:%M:%S'))
         ax.xaxis_date()
     fig.autofmt_xdate()
-    fig.savefig('record_section_unnorm', bbox_inches='tight')
+    fig.savefig('figures/record_section_unnorm', bbox_inches='tight')
 

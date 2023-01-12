@@ -5,11 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2983ccc-a71c-45d1-bcca-d7c39fcf2c56" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/location_size.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grid_search_functions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_functions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rungrid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BarryArm1/figures/stacked_strength_map_0.9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BarryArm1/grid_search_functions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BarryArm1/output/locfile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/BarryArm1/output/locfile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BarryArm1/plot_functions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BarryArm1/rungrid.py" beforeDir="false" afterPath="$PROJECT_DIR$/BarryArm1/rungrid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BarryArm2/grid_search_functions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BarryArm2/output/sizefile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/BarryArm2/output/sizefile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BarryArm2/plot_functions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BarryArm2/rungrid.py" beforeDir="false" afterPath="$PROJECT_DIR$/BarryArm2/rungrid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BarryArm3/grid_search_functions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BarryArm3/plot_functions.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/BarryArm3/rungrid.py" beforeDir="false" afterPath="$PROJECT_DIR$/BarryArm3/rungrid.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,6 +29,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+    <option name="showPreview" value="true" />
   </component>
   <component name="ProjectId" id="2JvHp50lFJFFrS2WgKXsyQNTAdS" />
   <component name="ProjectViewState">
@@ -33,7 +50,49 @@
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.rungrid (1)">
+    <configuration name="rungrid (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="location_size" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/BarryArm1" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BarryArm1/rungrid.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="rungrid (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="location_size" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/BarryArm2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BarryArm2/rungrid.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="rungrid" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="location_size" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -55,6 +114,12 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.rungrid (1)" />
+        <item itemvalue="Python.rungrid (2)" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -66,5 +131,16 @@
       <updated>1672951815723</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -293,7 +293,7 @@ def error(gtevlat,gtevlon,conf,locfile,lonlatgridfile,stacked_strengthfile):
     im = ax.pcolormesh(xx,yy, stacked_strength,shading='nearest',cmap=cm.hot_r, vmin=0, vmax=1)
     ax110 = fig.add_axes([0.92, 0.11, 0.01, 0.77])
     fig.colorbar(im, cax=ax110)    
-    fig.savefig('output/stacked_strength_map_' + str(conf) + '.png', bbox_inches='tight')
+    fig.savefig('figures/stacked_strength_map_' + str(conf) + '.png', bbox_inches='tight')
     power = np.amax(stacked_strength)
     threshold = power*conf
     stacked_strength[stacked_strength < threshold] = np.NaN 
@@ -390,20 +390,21 @@ def size(stafile,locfile,before_ts_wfs):
     dataenv = np.array([envelope(tr.data[:npts]) for tr in st])
     noss = data.shape[0] # same with nos = len(st), using this for consistency 
     for s in range(noss):
-        if station[s] != "GOAT": #stn GOAT is ab outlier for size estimation for BA2
-           absmaxamp = np.max(np.abs(data[s])) #max of the abs value of the stack
-           envabsmaxamp = np.max(np.abs(dataenv[s])) #max of the abs value of the stack
-           maxamp = np.max((data[s])) #max of the abs value of the stack
-           minamp = np.min((data[s])) #max of the abs value of the stack
-           azimuth, azimuth, distance_2d = g.inv(evdf.longitude[0],evdf.latitude[0],stalon[s],stalat[s])
-           dist = float(distance_2d)/1000
-           amplitude = absmaxamp,maxamp,minamp,envabsmaxamp,dist,station[s]
-           ampdf.loc[s] = amplitude
+        absmaxamp = np.max(np.abs(data[s])) #max of the abs value of the stack
+        envabsmaxamp = np.max(np.abs(dataenv[s])) #max of the abs value of the stack
+        maxamp = np.max((data[s])) #max of the abs value of the stack
+        minamp = np.min((data[s])) #max of the abs value of the stack
+        azimuth, azimuth, distance_2d = g.inv(evdf.longitude[0],evdf.latitude[0],stalon[s],stalat[s])
+        dist = float(distance_2d)/1000
+        amplitude = absmaxamp,maxamp,minamp,envabsmaxamp,dist,station[s]
+        ampdf.loc[s] = amplitude
     ampdf['distance (deg)'] = ampdf['dist']/111    
     abs_amp=ampdf.loc[(ampdf['distance (deg)'] >= 1), 'absmaxamp']        
     #log10 (y) = b + a*log10(x)
     mean = np.mean(abs_amp)
+    median = np.median(abs_amp)
     volume = np.exp((np.log(mean)*a)+b)    
+#    volume = np.exp((np.log(median)*a)+b)    #test this instead
     sizedf.loc[0] = volume 
     print(sizedf)
     sizedf.to_csv('output/sizefile.csv',index=False)
