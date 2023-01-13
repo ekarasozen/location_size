@@ -4,23 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2983ccc-a71c-45d1-bcca-d7c39fcf2c56" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/grid_search_functions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plot_functions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rungrid.py" afterDir="false" />
+    <list default="true" id="b2983ccc-a71c-45d1-bcca-d7c39fcf2c56" name="Changes" comment="rungrid files are updated to run all at once. function codes are moved to main directory to be run directly from there">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BarryArm1/figures/stacked_strength_map_0.9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BarryArm1/grid_search_functions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BarryArm1/output/locfile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/BarryArm1/output/locfile.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BarryArm1/plot_functions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BarryArm1/rungrid.py" beforeDir="false" afterPath="$PROJECT_DIR$/BarryArm1/rungrid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BarryArm2/grid_search_functions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BarryArm2/output/sizefile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/BarryArm2/output/sizefile.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BarryArm2/plot_functions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BarryArm2/rungrid.py" beforeDir="false" afterPath="$PROJECT_DIR$/BarryArm2/rungrid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BarryArm3/grid_search_functions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BarryArm3/plot_functions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BarryArm3/rungrid.py" beforeDir="false" afterPath="$PROJECT_DIR$/BarryArm3/rungrid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,14 +28,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/ezgikarasozen/Documents/GitHub/location_size",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ezgikarasozen/Documents/GitHub/location_size&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Python.rungrid (1)">
     <configuration name="rungrid (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="location_size" />
@@ -130,6 +116,14 @@
       <option name="presentableId" value="Default" />
       <updated>1672951815723</updated>
     </task>
+    <task id="LOCAL-00001" summary="rungrid files are updated to run all at once. function codes are moved to main directory to be run directly from there">
+      <created>1673565314142</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1673565314142</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -142,5 +136,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="rungrid files are updated to run all at once. function codes are moved to main directory to be run directly from there" />
+    <option name="LAST_COMMIT_MESSAGE" value="rungrid files are updated to run all at once. function codes are moved to main directory to be run directly from there" />
   </component>
 </project>

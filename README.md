@@ -5,14 +5,14 @@ These codes are described in Karasozen & West (submitted in 2023), Toward the ra
 This folder contains 3 landslide examples and each example includes: 
 
 1. a control script, rungdrid.py
-2. a functions script, grid_seach_functions.py, that stores core scripts that prepare waveforms, create the grid and solve for location and size.  
-3. a plotting script, plot_functions.py, that includes necessary plotting codes. 
+2. an output folder that contains results in obspy, numpy and pandas format, 
+3. a figures folder.  
 
-rungrid.py can be executed by uncommenting each line and running rungrid.py at every step. Theses scripts will create two folders:
+When rungrid.py is executed following scripts are run:
 
-1. an output folder that contains results in obspy, numpy and pandas format, 
-2. a figures folder.  
+1. functions script, grid_seach_functions.py, that stores core scripts that prepare waveforms, create the grid and solve for location and size.  
+2. plotting script, plot_functions.py, that includes necessary plotting codes. 
 
 The code is not optimized for speed. 
 
-Latest version: 6 January 2023. 
+Latest version: 12 January 2023. 
